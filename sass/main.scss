@@ -1,0 +1,47 @@
+%clearfix {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+%borderbox {
+	box-sizing: border-box;
+}
+
+
+/* Main styles */
+
+@font-face {
+	font-family: 'Rockwell';
+	src:
+		url('fonts/Rockwell.eot?') format('eot'), 
+		url('fonts/Rockwell.woff') format('woff'), 
+		url('fonts/Rockwell.ttf')  format('truetype'),
+		url('fonts/Rockwell.svg#Rockwell') format('svg');
+}
+
+a {
+	font-family: Rockwell, sans-serif;
+	font-size: 16px;
+	@extend %borderbox;
+	@extend %clearfix;
+}
+
+
+
+/* Navigation */
+
+nav {
+	border-radius: 4px;
+	display: flex;
+
+	ul {
+		font-weight: bold;
+
+		li {
+			background-color: #FFF;
+		}
+	}
+}
