@@ -16,19 +16,14 @@ module.exports = function(grunt) {
 
 		// Processing SCSS
 		sass: {
-			global: {
-				options: {
-					sourceMap: false,
-					sourceComments: false,
-					outputStyle: 'expanded',
+			options: {
+				sourceMap: false,
+				outputStyle: 'expanded',
+			},
+			dist: {
+				files: {
+					'css/custom.css': 'sass/main.scss'
 				},
-				files: [{
-					expand: true,
-					cwd: 'sass/',
-					src: ['*.scss'],
-					dest: 'tmp/',
-					ext: '.css'
-				}],
 			},
 		},
 
@@ -38,19 +33,15 @@ module.exports = function(grunt) {
 				options: {
 					separator: '\n\n',
 				},
-				src: [
-					'tmp/reset.css',
-					'tmp/*.css',
-					'tmp/main.css',
-				],
-				dest: 'css/styles.css',
+				src: ['tmp/*.css'],
+				dest: 'css/vendor.css',
 			},
 			js: {
 				options: {
 					separator: ';\n',
 				},
 				src: ['tmp/*.js'],
-				dest: 'js/scripts.js'
+				dest: 'js/vendor.js'
 			},
 		},
 
@@ -58,7 +49,7 @@ module.exports = function(grunt) {
 		uglify: {
 			js: {
 				files: {
-					'js/scripts.js': 'js/scripts.js',
+					'js/vendor.js': 'js/vendor.js',
 				},
 			}
 		},
@@ -76,6 +67,19 @@ module.exports = function(grunt) {
 			},
 		},
 
+		// Minifying vendor CSS
+		cssmin: {
+			options: {
+				shorthandCompacting: true,
+				roundingPrecision: -1,
+			},
+			target: {
+				files: {
+					'css/vendor.css': 'css/vendor.css',
+				},
+			},
+		},
+
 		// Cleaning temporary files
 		clean: {
 			css: ['tmp'],
@@ -85,11 +89,7 @@ module.exports = function(grunt) {
 		watch: {
 			styles: {
 				files: ['sass/*.scss'],
-				tasks: ['sass', 'concat:css', 'autoprefixer'],
-			},
-			scripts: {
-				files: ['js/*.js'],
-				tasks: ['concat:js'],
+				tasks: ['sass', 'autoprefixer'],
 			},
 		},
 	});
@@ -98,9 +98,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-sass');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['bower', 'sass', 'concat', 'autoprefixer', 'uglify', 'clean']);
+	grunt.registerTask('default', ['bower', 'concat', 'cssmin', 'sass', 'autoprefixer', 'uglify', 'clean']);
 };

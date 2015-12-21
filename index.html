@@ -4,7 +4,8 @@
 		<title>Bupa challenge</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/vendor.css" />
+		<link rel="stylesheet" href="css/custom.css" />
 	</head>
 	<body>
 		<!-- Header -->
@@ -280,24 +281,7 @@
 		</footer>
 		<!-- /Footer -->
 
-		<script type="text/javascript" src="js/scripts.js"></script>
-
-		<script type="text/javascript">
-			$(document).ready(function(){
-				var swiper = new Swiper ('.carousel', 
-					{
-						speed: 400,
-						nextButton: '.swiper-button-next',
-						prevButton: '.swiper-button-prev',
-						pagination: '.swiper-pagination',
-						paginationClickable: true
-					});
-
-				var picker = new Pikaday({
-					field: $('.search.advanced .datepicker input[type="text"]')[0],
-					format: 'DD MMM YYYY',
-				});
-			});
-		</script>
+		<script type="text/javascript" src="js/vendor.js"></script>
+		<script type="text/javascript" src="js/custom.js"></script>
 	</body>
 </html>
