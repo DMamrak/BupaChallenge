@@ -27,6 +27,7 @@
 		$header-padding: $font-size * 0.3;
 
 		.promo {
+			position: relative;
 			padding: $block-padding;
 			background-color: #FFFFFF;
 
@@ -57,7 +58,6 @@
 			}
 
 			p {
-				float: left;
 				line-height: normal;
 				font: {
 					family: $font-primary;
@@ -66,7 +66,9 @@
 			}
 
 			.button {
-				float: right;
+				position: absolute;
+				bottom: $block-padding;
+				right: $block-padding;
 			}
 		}
 	}

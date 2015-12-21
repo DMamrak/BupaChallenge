@@ -343,6 +343,7 @@ label {
 }
 
 .gallery .wrapper .promo {
+  position: relative;
   padding: 9.1px;
   background-color: #FFFFFF;
 }
@@ -376,14 +377,15 @@ label {
 }
 
 .gallery .wrapper .promo p {
-  float: left;
   line-height: normal;
   font-family: Rockwell, sans-serif;
   font-size: 19.5px;
 }
 
 .gallery .wrapper .promo .button {
-  float: right;
+  position: absolute;
+  bottom: 9.1px;
+  right: 9.1px;
 }
 
 /* _search_form.scss */
