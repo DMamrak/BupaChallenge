@@ -17,7 +17,9 @@
     "tests"
   ],
   "devDependencies": {
-    "normalize-css": "normalize.css#~3.0.3",
-    "slick-carousel": "slick.js#~1.5.9"
+    "reset-css": "~2.0.2011012602",
+    "Swiper": "swiper#~3.2.7",
+    "jquery": "~2.1.4",
+    "moment": "~2.10.6"
   }
 }

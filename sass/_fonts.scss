@@ -1,0 +1,10 @@
+/* _fonts.scss */
+
+@font-face {
+	font-family: 'Rockwell';
+	src:
+		url('/fonts/Rockwell.eot?') format('eot'), 
+		url('/fonts/Rockwell.woff') format('woff'), 
+		url('/fonts/Rockwell.ttf') format('truetype'),
+		url('/fonts/Rockwell.svg#Rockwell') format('svg');
+}

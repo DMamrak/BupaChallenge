@@ -1,0 +1,65 @@
+/* _common.scss */
+
+body {
+	font: {
+		family: $font-plain;
+		size: $font-size;
+	};
+	line-height: 1.5;
+	color: $text-color;
+}
+
+a {
+	color: $primary-color;
+	&.button {
+		display: inline-block;
+		text-decoration: none;
+
+		@include form-element;
+		@include button;
+
+		&.primary {
+			@include button-primary;
+		}
+	}
+}
+
+h1, h2, h3 {
+	font: {
+		family: $font-primary;
+		weight: bold;
+	};
+}
+
+h1 {
+	font-size: $font-size * 1.7;
+}
+
+h2 {
+	font-size: $font-size * 1.5;
+}
+
+h3 {
+	font-size: $font-size;
+}
+
+input, select {
+	border-style: none;
+	@include form-element;
+}
+
+input {
+	&[type="text"] {
+		@include text-input;
+	}
+	&[type="button"] {
+		@include button;
+	}
+	&[type="submit"] {
+		@include button;
+	}
+}
+
+label {
+	cursor: pointer;
+}

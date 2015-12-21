@@ -1,0 +1,115 @@
+@mixin centered {
+	margin: {
+		right: auto;
+		left: auto;
+	}
+}
+
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin two-column {
+	float: left;
+	width: 49%;
+	margin-right: 2%;
+
+	&:nth-child(2n) {
+		margin-right: 0;
+	}
+}
+
+@mixin three-column {
+	float: left;
+	width: 32%;
+	margin-right: 2%;
+
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+}
+
+@mixin four-column {
+	float: left;
+	width: 23.5%;
+	margin-right: 2%;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+@mixin five-column {
+	float: left;
+	width: 19.2%;
+	margin-right: 1%;
+
+	&:nth-child(5n) {
+		margin-right: 0;
+	}
+}
+
+@mixin six-column {
+	float: left;
+	width: 16%;
+	margin-right: 0.8%;
+
+	&:nth-child(6n) {
+		margin-right: 0;
+	}
+}
+
+@mixin icon {
+	&:before {
+		content: "";
+		display: inline-block;
+		margin-right: $font-size / 4;
+		vertical-align: middle;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+}
+
+@mixin form-element {
+	height: $element-height;
+	line-height: $element-height;
+	padding: {
+		top: 0;
+		bottom: 0;
+	}
+	vertical-align: middle;
+	border-radius: $border-radius;
+	box-sizing: border-box;
+	background: $input-color;
+	border: 1px solid #e1e1e1;
+	outline: none;
+}
+
+@mixin text-input {
+	padding: {
+		left: $element-height / 3;
+		right: $element-height / 3;
+	}
+}
+
+@mixin button {
+	padding: {
+		left: $font-size / 2;
+		right: $font-size / 2;
+	}
+	text-align: center;
+	font-family: $font-primary;
+	color: $primary-color;
+	background: linear-gradient(to bottom, #FFFFFF 0%, $input-color 100%);
+	cursor: pointer;
+}
+
+@mixin button-primary {
+	color: #FFFFFF;
+	border-style: none;
+	background: linear-gradient(to bottom, $primary-color + #333333 0%, $primary-color 100%);
+}

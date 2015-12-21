@@ -1,0 +1,236 @@
+/* _content.scss */
+
+.block {
+}
+
+.content {
+	max-width: $middle;
+
+	@include centered;
+
+	section{
+		@include clearfix;
+
+		@media (max-width:$middle) {
+			padding: {
+				right: $font-size;
+				left: $font-size;
+			}
+		}
+	}
+
+	article {
+		margin-top: $font-size;
+		padding: $font-size;
+		border: 1px solid #cccccc;
+		box-sizing: border-box;
+
+		header {
+			margin: {
+				top: -$font-size;
+				left: -$font-size;
+				right: -$font-size;
+			}
+
+			h2 {
+				line-height: 1;
+				margin: $font-size;
+			}
+		}
+
+		.thumbnail {
+			display: block;
+			width: 100%;
+		}
+
+		p {
+			margin-bottom: $font-size / 2;
+		}
+	}
+
+	.widgets {
+		article {
+			min-height: $font-size * 24;
+
+			@media (min-width:$small) and (max-width:$middle) {
+				@include two-column;
+			}
+
+			@media (min-width:$middle) {
+				@include four-column;
+			}
+
+			.newsletter {
+				margin-bottom: $font-size / 2;
+
+				@include clearfix;
+
+				input {
+					float: left;
+
+					&[type="text"] {
+						width: 64%;
+						margin-right: 2%;
+					}
+
+					&[type="submit"] {
+						width: 34%;
+					}
+				}
+			}
+		}
+	}
+
+	.media {
+		margin-top: $font-size;
+
+		.video {
+			@media (min-width:$middle) {
+				float: left;
+			}
+
+			@media (max-width:$middle) {
+				position: relative;
+				height: 0;
+				margin-bottom: $font-size;
+				padding: {
+					bottom: 56.25%;
+					top: 30px;
+				}
+				overflow: hidden;
+		
+				iframe, object, embed {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			iframe, object, embed {
+				display: block;
+			}
+		}
+
+		.quotation {
+			padding: {
+				top: $font-size;
+				left: $font-size * 4;
+				right: $font-size * 4;
+			}
+
+			@media (min-width:$middle) {
+				position: relative;
+				top: 35px;
+				overflow: hidden;
+			}
+
+			blockquote{
+				line-height: normal;
+				font: {
+					family: $font-plain;
+					size: $font-size * 1.5;
+					style: italic;
+				}
+
+				$quote-size: $font-size * 3;
+				$quote-font-size: $font-size * 8;
+				$quote-line-height: $font-size * 7;
+				$quote-text-indent: - $font-size / 2;
+				$quote-hor-offset: - $font-size * 3 - 4;
+				$quote-vert-offset: - $font-size * 2;
+
+				&:before, &:after {
+					display: inline-block;
+					height: $quote-size;
+					width: $quote-size; 
+					line-height: $quote-line-height;
+					text-indent: $quote-text-indent;
+					font: {
+						size: $quote-font-size;
+						style: italic;
+					}
+					color: $primary-color;
+					overflow: hidden;
+				}
+
+				&:before {
+					content: "“";
+					vertical-align: text-bottom;
+					margin: {
+						left: $quote-hor-offset;
+						top: $quote-vert-offset;
+					}
+				}
+
+				&:after {
+					content: "”";
+					vertical-align: text-top;
+					margin: 
+					{
+						right: $quote-hor-offset;
+						bottom: $quote-vert-offset;
+					}
+				}
+			}
+
+			p {
+				margin: $font-size 0;
+				font-weight: bold;
+			}
+		}
+	}
+	
+	.misc {
+		article {
+			min-height: $font-size * 26;
+
+			@media (min-width:$small) {
+				@include three-column;
+			}
+
+			&.faq {
+				.item {
+					margin-bottom: $font-size / 2;
+				}
+			}
+
+			&.upcoming {
+				.item {
+					margin-bottom: $font-size;
+					padding-bottom: $font-size;
+					border-bottom: 1px solid #CCCCCC;
+
+					&:last-child {
+						margin-bottom: 0;
+						padding-bottom: 0;
+						border-bottom: none;
+					}
+
+					@include clearfix;
+
+					.thumbnail {
+						float: left;
+						width: 40%;
+						margin: {
+							right: 10px;
+							top: $font-size / 2;
+						}
+					}
+
+					.content {
+						overflow: hidden;
+					}
+
+					.price {
+						font: {
+							size: $font-size * 1.2;
+							weight: bold;
+						};
+					}
+				}
+			}
+		}
+	}
+}

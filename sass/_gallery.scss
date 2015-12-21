@@ -1,0 +1,73 @@
+/* _gallery.scss */
+
+.gallery {
+	background-color: #DDD;
+
+	.carousel {
+		max-width: $large;
+
+		@include centered;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.wrapper {
+		max-width: $middle;
+
+		@include centered;
+
+		@media (min-width:$middle) {
+			position: relative;
+		}
+
+		$block-padding: $font-size * 0.7;
+		$header-padding: $font-size * 0.3;
+
+		.promo {
+			padding: $block-padding;
+			background-color: #FFFFFF;
+
+			@media (min-width:$middle) {
+				position: absolute;
+				left: 0;
+				bottom: $font-size;
+				z-index: 1;
+			}
+
+			@include clearfix;
+
+			h1 {
+				margin: {
+					top: - $block-padding;
+					left: - $block-padding;
+					right: - $block-padding;
+					bottom: $block-padding;
+				}
+				padding: {
+					left: $block-padding;
+					right: $block-padding;
+					top: $header-padding;
+					bottom: $header-padding;
+				}
+				color: #FFFFFF;
+				background-color: $primary-color + #333333;
+			}
+
+			p {
+				float: left;
+				line-height: normal;
+				font: {
+					family: $font-primary;
+					size: $font-size * 1.5;
+				}
+			}
+
+			.button {
+				float: right;
+			}
+		}
+	}
+}

@@ -1,0 +1,117 @@
+/* _search_form.scss */
+
+.search.advanced {
+	color: #FFFFFF;
+	box-sizing: border-box;
+
+	.wrapper {
+		max-width: $middle;
+
+		@include centered;
+		@include clearfix;	
+	}
+
+	.category {
+		padding: $font-size * 0.7;
+		font: {
+			family: $font-primary;
+			size: $font-size * 1.1;
+		}
+		background-color: $primary-color - #111111;
+
+		input[type="radio"] {
+			display: none;			
+
+			& + label {
+				@include icon;
+
+				&:before {
+					width: 19px;
+					height: 19px;
+					background-image: url("/img/icons/radio.png");
+				}
+			}
+
+			&:checked + label:before {
+				background-image: url("/img/icons/radio_active.png");
+			}
+		}
+
+		label {
+			display: inline-block;
+			margin-right: 5px;
+		}
+
+		.heading {
+			display: inline-block;
+
+			@media (max-width:$middle) {
+				display: block;
+			}
+		}
+	}
+
+	.main {
+		padding: $font-size * 0.7;
+		background: linear-gradient(to bottom, $primary-color 0%, $primary-color + #333333 100%);
+
+		.form_item,
+		input[type="submit"]
+		{
+			@media (max-width:$small) {
+				@include two-column;
+			}
+
+			@media (min-width:$small) and (max-width:$middle) {
+				@include five-column;
+			}
+
+			@media (min-width:$middle) {
+				@include six-column;
+			}
+		}
+
+		.form_item {
+			input, select {
+				width: 100%;
+			}
+
+			&.datepicker {
+				position: relative;
+
+				@include icon;
+
+				input[type="text"] {
+					padding-right: 30px;
+				}
+			}
+
+			&.datepicker:before {
+				position: absolute;
+				right: 0;
+				bottom: $element-height / 2 - 10;
+				width: 20px;
+				height: 20px;
+				background-image: url("/img/icons/calendar.png");
+			}
+		}
+
+		input[type="submit"] {
+			@media (max-width:$small) {
+				margin-top: $font-size * 1.5;
+			}
+
+			@media (min-width:$small) and (max-width:$middle) {
+				float: right;
+				margin: {
+					top: $font-size * 0.7;
+					right: 0;
+				}
+			}
+
+			@media (min-width:$middle) {
+				margin-top: $font-size * 1.5;
+			}			
+		}
+	}
+}
